@@ -1,24 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SiteStatus :sites="sites" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SiteStatus from "./components/SiteStatus";
+import { sites } from "./data/sites.js";
 
 export default {
-  name: 'app',
+  name: "app",
+  data() {
+    return {
+      sites
+    };
+  },
   components: {
-    HelloWorld
+    SiteStatus: SiteStatus
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
