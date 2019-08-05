@@ -1,8 +1,10 @@
 <template>
   <div>
-    <h1>Register Component</h1>
-    <form>
-      <input v-model="$v.username.$model" type="text" name id />
+    <form autocomplete="false">
+      <v-text-field v-model="$v.username.$model" :counter="10" label="Username"></v-text-field>
+      <v-text-field v-model="$v.password.$model" type="password" label="Password"></v-text-field>
+      <v-text-field v-model="$v.email.$model" type="email" label="Username"></v-text-field>
+      <v-btn class="mr-4" @click="submit">Register</v-btn>
     </form>
   </div>
 </template>
@@ -14,10 +16,13 @@ import {
   maxLength,
   email
 } from "vuelidate/lib/validators";
+import axios from "axios";
+import { config } from "@/config/config";
+
 export default {
   data() {
     return {
-      username: "John",
+      username: "",
       password: "",
       email: ""
     };
@@ -36,6 +41,19 @@ export default {
     email: {
       required,
       email
+    }
+  },
+  methods: {
+    submit() {
+      let authString = btoa(`${config.appKey}:${config.appSecret}`);
+
+      this.$http.defaults.headers.post["Authorization"] = `Basic ${authString}`;
+      this.$http.post(`/user/${config.appKey}`, {
+        username: this.username,
+        password: this.password
+      });
+
+      console.log("Submited");
     }
   }
 };

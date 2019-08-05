@@ -6,6 +6,8 @@ import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.css'
 import Vuelidate from 'vuelidate'
 
+import AxiosPlugin from '@/plugins/axiosPlugin'
+
 import {
   routes
 } from '@/routes';
@@ -15,6 +17,7 @@ Vue.config.productionTip = false;
 Vue.use(Vuelidate);
 Vue.use(Vuetify);
 Vue.use(VueRouter);
+Vue.use(AxiosPlugin);
 
 const router = new VueRouter({
   routes

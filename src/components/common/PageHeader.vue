@@ -1,22 +1,12 @@
 <template>
   <div>
-    <h1>test</h1>
-    <v-icon>mdi-anchor</v-icon>Icon ?
+    <h1>Navigation Component</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "page-header",
-  data() {
-    return {
-      items: [
-        { title: "Dashboard", icon: "dashboard" },
-        { title: "Account", icon: "account_box" },
-        { title: "Admin", icon: "gavel" }
-      ]
-    };
-  }
+  name: "page-header"
 };
 </script>
 
