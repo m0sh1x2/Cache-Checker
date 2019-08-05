@@ -1,10 +1,15 @@
 <template>
   <div id="app">
+    <page-header />
     <router-view></router-view>
+    <page-footer />
   </div>
 </template>
 
 <script>
+import PageHeader from "@/components/common/PageHeader";
+import PageFooter from "@/components/common/PageFooter";
+
 import { sites } from "./data/sites.js";
 
 export default {
@@ -14,7 +19,10 @@ export default {
       sites
     };
   },
-  components: {}
+  components: {
+    PageHeader,
+    PageFooter
+  }
 };
 </script>
 

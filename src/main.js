@@ -1,8 +1,10 @@
-import Vue from 'vue';
-import App from './App.vue';
-import VueRouter from 'vue-router';
-import Vuetify from 'vuetify/lib';
-import Vuelidate from 'vuelidate';
+import Vue from 'vue'
+import App from './App.vue'
+import VueRouter from 'vue-router'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import Vuelidate from 'vuelidate'
 
 import {
   routes
