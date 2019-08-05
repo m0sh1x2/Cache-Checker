@@ -1,4 +1,4 @@
-# advanced-components
+# Cache Checker
 
 ## Project setup
 ```

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Cache Checker</h1>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -14,8 +14,7 @@ export default {
       sites
     };
   },
-  components: {
-  }
+  components: {}
 };
 </script>
 
