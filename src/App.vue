@@ -1,11 +1,10 @@
 <template>
   <div id="app">
-    <SiteStatus :sites="sites" />
+    <h1>Cache Checker</h1>
   </div>
 </template>
 
 <script>
-import SiteStatus from "./components/SiteStatus";
 import { sites } from "./data/sites.js";
 
 export default {
@@ -16,7 +15,6 @@ export default {
     };
   },
   components: {
-    SiteStatus: SiteStatus
   }
 };
 </script>
