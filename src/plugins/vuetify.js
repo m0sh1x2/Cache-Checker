@@ -9,7 +9,8 @@ import Vuetify, {
     VFlex,
     VToolbarTitle,
     VToolbarItems,
-    VCard
+    VCard,
+    VTextField,
 } from 'vuetify/lib'
 
 Vue.use(Vuetify, {
@@ -22,7 +23,8 @@ Vue.use(Vuetify, {
         VFlex,
         VToolbarTitle,
         VToolbarItems,
-        VCard
+        VTextField,
+        VCard,
     }
 })
 
