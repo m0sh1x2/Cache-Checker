@@ -9,6 +9,7 @@
 <script>
 import PageHeader from "@/components/common/PageHeader";
 import PageFooter from "@/components/common/PageFooter";
+import PageDrawer from "@/components/common/PageDrawer";
 
 import { sites } from "./data/sites.js";
 
@@ -21,7 +22,8 @@ export default {
   },
   components: {
     PageHeader,
-    PageFooter
+    PageFooter,
+    PageDrawer
   }
 };
 </script>

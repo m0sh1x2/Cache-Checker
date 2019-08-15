@@ -1,9 +1,9 @@
 <template>
   <div>
+    <page-drawer :drawer="openDrawer" />
+
     <v-toolbar>
-      <v-btn text @click="loggedIn=!loggedIn">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      <v-icon @click.stop="openDrawer = !openDrawer">mdi-menu</v-icon>
 
       <v-toolbar-title>Cache Checker</v-toolbar-title>
 
@@ -26,11 +26,17 @@
 </template>
 
 <script>
+import PageDrawer from "@/components/common/PageDrawer";
+
 export default {
   name: "page-header",
+  components: {
+    PageDrawer
+  },
   data() {
     return {
-      loggedIn: false
+      loggedIn: false,
+      openDrawer: true
     };
   }
 };
