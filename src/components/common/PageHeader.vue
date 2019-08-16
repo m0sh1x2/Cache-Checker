@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page-drawer :drawer="openDrawer" />
+    <page-drawer :drawer="openDrawer"></page-drawer>
 
     <v-toolbar>
       <v-icon @click.stop="openDrawer = !openDrawer">mdi-menu</v-icon>
@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { EventBus } from "@/event-bus";
+
 import PageDrawer from "@/components/common/PageDrawer";
 
 export default {
@@ -36,8 +38,13 @@ export default {
   data() {
     return {
       loggedIn: false,
-      openDrawer: true
+      openDrawer: null
     };
+  },
+  created() {
+    EventBus.$on("i-got-clicked", clickCount => {
+      console.log(`Oh, that's nice. It's gotten ${clickCount} clicks! :)`);
+    });
   }
 };
 </script>
