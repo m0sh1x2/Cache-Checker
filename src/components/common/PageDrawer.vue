@@ -26,7 +26,7 @@
       </v-list>
     </v-navigation-drawer>
     <!-- <v-icon @click.stop="drawer = !drawer">mdi-menu</v-icon> -->
-    <v-btn @click="emitGlobalClickEvent()">test</v-btn>
+    <!-- <v-btn @click="emitGlobalClickEvent()">test</v-btn> -->
   </div>
 </template>
 

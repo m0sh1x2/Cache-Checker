@@ -1,3 +1,4 @@
+import '@fortawesome/fontawesome-free/css/all.css'
 import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
 import Vue from 'vue'
 import Vuetify, {
@@ -16,6 +17,8 @@ import Vuetify, {
     VSheet,
     VNavigationDrawer,
     VList,
+    VListItemAction,
+    VListItemSubtitle,
     VContainer,
     VListItem,
     VListItemContent,
@@ -42,6 +45,8 @@ Vue.use(Vuetify, {
         VSheet,
         VNavigationDrawer,
         VList,
+        VListItemAction,
+        VListItemSubtitle,
         VContainer,
         VListItem,
         VListItemContent,
@@ -54,6 +59,6 @@ Vue.use(Vuetify, {
 
 export default new Vuetify({
     icons: {
-        iconfont: 'mdi', // default - only for display purposes
+        iconfont: 'fa',
     },
 })

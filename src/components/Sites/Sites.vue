@@ -1,11 +1,23 @@
 <template>
   <div>
-    <h1>Sites Component</h1>
+    <site-item v-for="n in 10" :key="n"></site-item>
   </div>
 </template>
 
 <script>
-export default {};
+import SiteItem from "@/components/Sites/SiteItem";
+
+export default {
+  name: "sites",
+  components: { SiteItem },
+  data() {
+    return {
+      siteList: [
+        { id: 1, }
+      ]
+    };
+  }
+};
 </script>
 
 <style>
