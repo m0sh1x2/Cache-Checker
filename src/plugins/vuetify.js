@@ -2,7 +2,9 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
 import Vue from 'vue'
 import Vuetify, {
+    VApp,
     VRow,
+    VCol,
     VImg,
     VToolbar,
     VSpacer,
@@ -25,12 +27,14 @@ import Vuetify, {
     VListItemTitle,
     VListItemIcon,
     VListItemAvatar,
-    VDivider
+    VDivider,
 } from 'vuetify/lib'
 
 Vue.use(Vuetify, {
     components: {
+        VApp,
         VRow,
+        VCol,
         VImg,
         VToolbar,
         VSpacer,

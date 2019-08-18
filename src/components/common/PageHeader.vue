@@ -13,7 +13,8 @@
         <v-btn text to="/">Home</v-btn>
 
         <template v-if="loggedIn">
-          <v-btn text to="/sites">My Sites</v-btn>
+          <v-btn text to="/add">Add</v-btn>
+          <v-btn text to="/sites">List Sites</v-btn>
           <v-btn text to="/logout">Logout</v-btn>
         </template>
 
@@ -23,7 +24,6 @@
         </template>
       </v-toolbar-items>
     </v-toolbar>
-
   </div>
 </template>
 
