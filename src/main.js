@@ -5,6 +5,7 @@ import vuetify from '@/plugins/vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.css'
 import Vuelidate from 'vuelidate'
+import store from './store/store'
 import { authService } from '@/services/authServices';
 
 import AxiosPlugin from '@/plugins/axiosPlugin'
@@ -29,5 +30,6 @@ const router = new VueRouter({
 new Vue({
   vuetify,
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')

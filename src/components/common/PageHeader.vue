@@ -3,7 +3,7 @@
     <page-drawer :drawer="openDrawer"></page-drawer>
 
     <v-toolbar>
-      <v-icon @click.stop="openDrawer = !openDrawer">mdi-menu</v-icon>
+      <v-icon @click.stop="triggerDrawer()">mdi-menu</v-icon>
 
       <v-toolbar-title>Cache Checker</v-toolbar-title>
 
@@ -32,6 +32,7 @@ import { EventBus } from "@/event-bus";
 
 import PageDrawer from "@/components/common/PageDrawer";
 import { logoutUser } from "@/services/authServices";
+import { mapActions } from "vuex";
 
 export default {
   name: "page-header",
@@ -44,9 +45,11 @@ export default {
     };
   },
   methods: {
+    triggerDrawer() {
+      this.$store.dispatch("updateDrawer");
+    },
     logout() {
       EventBus.$emit("logged-out");
-
       logoutUser();
     }
   }

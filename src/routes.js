@@ -4,7 +4,7 @@ import AddSite from '@/components/Sites/AddSite'
 import Profile from '@/components/Profile/Profile'
 import Login from '@/components/Authentication/Login'
 import Register from '@/components/Authentication/Register'
-
+import Experimental from '@/components/experimental'
 
 export const routes = [{
     path: '/',
@@ -29,5 +29,9 @@ export const routes = [{
 {
     path: '/register',
     component: Register
+},
+{
+    path: '/experimental',
+    component: Experimental
 }
 ]
