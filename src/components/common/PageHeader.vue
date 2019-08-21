@@ -12,10 +12,10 @@
       <v-toolbar-items>
         <v-btn text to="/">Home</v-btn>
 
-        <template v-if="loggedIn">
+        <template v-if="isAuthenticated">
           <v-btn text to="/add">Add</v-btn>
           <v-btn text to="/sites">List Sites</v-btn>
-          <v-btn text to="/logout">Logout</v-btn>
+          <v-btn text @click="logout()">Logout</v-btn>
         </template>
 
         <template v-else>
@@ -31,6 +31,7 @@
 import { EventBus } from "@/event-bus";
 
 import PageDrawer from "@/components/common/PageDrawer";
+import { logoutUser } from "@/services/authServices";
 
 export default {
   name: "page-header",
@@ -39,14 +40,15 @@ export default {
   },
   data() {
     return {
-      loggedIn: false,
       openDrawer: null
     };
   },
-  created() {
-    EventBus.$on("i-got-clicked", clickCount => {
-      console.log(`Oh, that's nice. It's gotten ${clickCount} clicks! :)`);
-    });
+  methods: {
+    logout() {
+      EventBus.$emit("logged-out");
+
+      logoutUser();
+    }
   }
 };
 </script>

@@ -5,7 +5,7 @@ import vuetify from '@/plugins/vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.css'
 import Vuelidate from 'vuelidate'
-
+import { authService } from '@/services/authServices';
 
 import AxiosPlugin from '@/plugins/axiosPlugin'
 
@@ -18,6 +18,9 @@ Vue.config.productionTip = false;
 Vue.use(Vuelidate);
 Vue.use(VueRouter);
 Vue.use(AxiosPlugin);
+
+// This mixin appends the isAuthenticated computed property across all components.
+Vue.mixin(authService);
 
 const router = new VueRouter({
   routes

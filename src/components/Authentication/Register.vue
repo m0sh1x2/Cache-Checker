@@ -4,25 +4,27 @@
       <v-col></v-col>
       <v-col>
         <form>
-          <v-text-field
-            v-model="$v.username.$model"
-            :counter="16"
-            label="Username"
-            :error-messages="usernameErrors"
-          ></v-text-field>
-          <v-text-field
-            v-model="$v.password.$model"
-            type="password"
-            label="Password"
-            :error-messages="passwordErrors"
-          ></v-text-field>
-          <v-text-field
-            v-model="$v.email.$model"
-            type="email"
-            label="Email"
-            :error-messages="emailErrors"
-          ></v-text-field>
-          <v-btn class="mr-4" @click="submit">Register</v-btn>
+          <v-sheet elevation="12" class="pa-12">
+            <v-text-field
+              v-model="$v.username.$model"
+              :counter="16"
+              label="Username"
+              :error-messages="usernameErrors"
+            ></v-text-field>
+            <v-text-field
+              v-model="$v.password.$model"
+              type="password"
+              label="Password"
+              :error-messages="passwordErrors"
+            ></v-text-field>
+            <v-text-field
+              v-model="$v.email.$model"
+              type="email"
+              label="Email"
+              :error-messages="emailErrors"
+            ></v-text-field>
+            <v-btn @click="submit" block color="info">Register</v-btn>
+          </v-sheet>
         </form>
       </v-col>
       <v-col></v-col>
@@ -38,7 +40,7 @@ import {
   email
 } from "vuelidate/lib/validators";
 
-import { config } from "@/config/config";
+import { authenticate } from "@/services/authServices";
 
 export default {
   data() {
@@ -48,6 +50,7 @@ export default {
       email: ""
     };
   },
+  mixins: [authenticate],
   validations: {
     username: {
       required,
@@ -92,17 +95,7 @@ export default {
   methods: {
     submit() {
       this.$v.$touch();
-
-      // let authString = btoa(`${config.appKey}:${config.appSecret}`);
-
-      // this.$http.defaults.headers.post["Authorization"] = `Basic ${authString}`;
-      // this.$http.post(`/user/${config.appKey}`, {
-      //   username: this.username,
-      //   password: this.password,
-      //   email: this.email
-      // });
-
-      console.log("Submited");
+      this.register(this.username, this.password, this.email);
     }
   }
 };

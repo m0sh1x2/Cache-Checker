@@ -4,19 +4,21 @@
       <v-col></v-col>
       <v-col>
         <form>
-          <v-text-field
-            v-model="$v.username.$model"
-            :counter="16"
-            label="Username"
-            :error-messages="usernameErrors"
-          ></v-text-field>
-          <v-text-field
-            v-model="$v.password.$model"
-            label="Password"
-            type="password"
-            :error-messages="passwordErrors"
-          ></v-text-field>
-          <v-btn block color="info" @click="submit">Login</v-btn>
+          <v-sheet elevation="12" class="pa-12">
+            <v-text-field
+              v-model="$v.username.$model"
+              :counter="16"
+              label="Username"
+              :error-messages="usernameErrors"
+            ></v-text-field>
+            <v-text-field
+              v-model="$v.password.$model"
+              label="Password"
+              type="password"
+              :error-messages="passwordErrors"
+            ></v-text-field>
+            <v-btn block color="info" @click="submit">Login</v-btn>
+          </v-sheet>
         </form>
       </v-col>
       <v-col></v-col>
@@ -25,12 +27,9 @@
 </template>
 
 <script>
-import {
-  required,
-  minLength,
-  maxLength,
-  email
-} from "vuelidate/lib/validators";
+import { required, minLength, maxLength } from "vuelidate/lib/validators";
+import { authenticate } from "@/services/authServices";
+import { EventBus } from "@/event-bus";
 
 export default {
   data() {
@@ -40,6 +39,7 @@ export default {
       password: ""
     };
   },
+  mixins: [authenticate],
   validations: {
     username: {
       required,
@@ -74,6 +74,11 @@ export default {
   methods: {
     submit() {
       this.$v.$touch();
+
+      this.login(this.username, this.password).then(user => {
+        EventBus.$emit("logged-in", user._kmd.authtoken);
+        this.$router.push("/");
+      });
     }
   }
 };
